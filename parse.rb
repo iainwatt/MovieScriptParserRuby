@@ -24,3 +24,40 @@ def parse_script
     # end
 
 end
+
+
+------------------------------------------------------------------
+
+def extract_characters
+  file = File.open("dances_with_wolves.txt", "r")
+  
+  characters = File.readlines(file).map do |line|
+    array = []
+    h = {}
+    if line.split(line.strip).first.size == 37
+       array << line.gsub(/\s+/, "")
+       array.each do |ele|
+        h[ele.strip] = []
+        puts h
+       end
+    end
+  end
+end
+
+def extract_lines
+  file = File.open("dances_with_wolves.txt", "r")
+  characters = File.readlines(file).each do |line|
+    char_lines = []
+    if line.split(line.strip).first.size == 25
+      char_lines << line.gsub(/\s+/, " ")
+    end
+    puts char_lines
+  end
+end
+
+extract_characters
+extract_lines
+
+# Ian out of time, this took me just over 2hours.
+# I can grab the characters and clean them up and can grab the lines and clean them up
+# next step would have been to work out how to build a hash out of both methods.
